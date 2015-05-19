@@ -16,6 +16,7 @@ var Range = (function (window, $, undefined) {
       events                = {},
       offsetX               = 0,
       bound                 = {};
+      lastValue             = 1;
 
   function Range(opts) {
     // parse options
@@ -111,10 +112,12 @@ var Range = (function (window, $, undefined) {
     $(document).off(events.end, onEndHandler);
 
     options.onRangeLast({
-      value : rangeValue,
+      value : rangeValue,  
       from  : options.from,
       to    : options.to
     });
+
+    lastValue = rangeValue;
   
   };
 
@@ -134,6 +137,7 @@ var Range = (function (window, $, undefined) {
     
     options.onStateChange({
       value : rangeValue,
+      last  : lastValue,
       from  : options.from,
       to    : options.to
     });
