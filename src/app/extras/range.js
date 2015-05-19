@@ -9,7 +9,7 @@ var Range = (function (window, $, undefined) {
         onStateChange : function(value){},
         onRangeLast : function(value){}
       },
-      rangeValue            = 0,
+      rangeValue            = 1,
       options               = {},
       $el, el, thumb, track = null,
       isTouchSupported      = false,
@@ -30,7 +30,7 @@ var Range = (function (window, $, undefined) {
       left : 0
     });
 
-    rangeValue = 0;
+    rangeValue = 1;
 
     options.onStateChange({
       value : rangeValue,

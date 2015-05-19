@@ -25,7 +25,10 @@
      			    to : 5,
      			    onStateChange : function (value){
      			        zoom.scale(value);
-     			    }
+     			    },
+						  onRangeLast : function (value) {
+								zoom.lastRange(value);
+							}
      			});
      			range.reset();
      		},1000);

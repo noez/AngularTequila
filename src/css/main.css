@@ -486,6 +486,7 @@ html {
 }
 .zoom .zoom-template {
   z-index: 40;
+  display: none;
 }
 .zoom .zoom-inner {
   overflow: hidden;
