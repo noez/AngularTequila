@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="ie-edge">
+	<title>Tequila Hacienda Maravatio</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/fontawesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="libs/jquery-minicolors/jquery.minicolors.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<div class="wrapper">
+	<div class="left-bar">
+		<div class="left-bar__thin">
+			<div class="thin">
+				<div class="thin__logo">
+					<div class="logo">
+						<img src="" alt="" class="logo__image">
+					</div>
+				</div>
+				<div class="thin__cart">
+					<div class="cart">
+						<a href="" class="cart__toggler">
+							<span class="toggler">
+								<span class="toggler__icon"></span>
+								<span class="toggler__caret toggler__caret--circle"></span>
+							</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="left-bar__wide left-bar__wide--menu"></div>
+		<div class="left-bar__wide left-bar__wide--cart"></div>
+	</div> <!-- / left-bar -->
+	<div class="layout">
+		<div class="layout__top"></div>
+		<div class="layout__row">
+			<div class="layout__row__col">
+				<div class="widgets">
+					<div class="widgets__item">
+						<div class="label-model" ng-controller="LabelController">
+							<div class="label-body">
+
+								<!-- Label Header -->
+								<div class="label-body__header">
+									<h3 class="header-headline ff-stack" ng-class="messages.font.stack"
+														ng-style="{ 'color' : messages.color  }">
+										{{messages.headline}}
+									</h3>
+								</div>
+								
+								<!-- Label Middle -->
+								<div class="label-body__middle">
+									<div class="zoom">
+										<div class="zoom-area"></div>
+									    <div class="zoom-inner">
+									   		<div class="zoom-template">
+									   			<img src="images/template.png" alt="">
+									   		</div>
+									        <div class="zoom-container">
+									            <div class="zoom-mask" ng-if="messages.image.file">
+									                <img class="zoom-image" 
+									                	ng-src="{{messages.image.file}}" 
+									                	ng-class="{'filter-black-white' : messages.filter.blackwhite , 'filter-sepia' : messages.filter.sepia}"
+									                	width="540"/>
+									            </div>
+									        </div>
+									    </div>
+									</div>
+								</div>
+								
+								<!-- Label bottom -->
+								<div class="label-body__footer">
+									
+								</div>
+							
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layout__row__col">
+				<div class="widgets">
+					<!-- Uploader -->
+					<div class="widgets__item">
+						<form ng-controller="UploadController">
+							<div class="form-group">
+								<label for="file-input-image" class="widget__label">
+								<i class="fa fa-upload"></i>
+									Cargar imagen 
+									
+								</label>
+								<input type="file" id="file-input-image"
+										name="file-input-image" 
+										file-input="files" multiple
+								class="form-control">
+							</div>
+							<button class="btn btn-primary" 
+								ng-click="upload()">Subir archivo </button>
+						</form>
+					</div>
+					<hr>
+					<!-- Transform -->
+					<div class="widgets__item">
+						<label class="widget__label">
+						<i class="fa fa-expand"></i>
+						Transformar Imagen
+						</label>
+						
+						<div class="range">
+						    <div class="range__thumb"></div>
+						    <div class="range__track"></div>
+						</div>
+					</div>
+					<hr>
+					<!-- Filters -->
+					<div class="widgets__item">
+						<label class="widget__label">
+							<i class="fa fa-magic"></i>
+							Aplicar Filtros
+						</label>
+						<ul class="list-unstyled filter-list" ng-controller="FilterController">
+						  <li class=" filter-list__item">
+						      <img src="images/f-bn.png"  alt=""/>
+						    <span class="filter-list__name"> <input type="checkbox" ng-model="messages.filter.blackwhite"/>Blanco &amp;Negro</span>
+						  </li>
+						  <!-- <li class="filter-list__item">
+						    <img src="images/f-gradient.png"  alt=""/>
+						    <span class="filter-list__name"> Degradado</span>
+						  </li> -->
+						  <li class="filter-list__item">
+						    <img src="images/f-sepia.png"  alt=""/>
+						    <span class="filter-list__name"><input type="checkbox" ng-model="messages.filter.sepia"/>Sepia</span>
+						  </li>
+						</ul>
+					</div>
+					<hr>
+					<!-- Typography -->
+					<div class="widgets__item">
+						<label class="widget__label">
+							<i class="fa fa-text-height"></i>
+							Texto
+						</label>
+						<div class="font" ng-controller="TextController">
+							<form  class="form-horizontal font__form">
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Titulo:</label>
+									<div class="col-sm-10">
+										<input type="text" class="form-control" ng-model="messages.headline"/>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Fuente:</label>
+									<div class="col-sm-10">
+										<select class="form-control" 
+										ng-model="messages.font"
+										ng-options="font as font.name for font in fontStacks">
+								
+										</select>
+									</div>
+								</div>
+	
+								<div class="form-group">
+									<label class="col-sm-2 control-label">Color:</label>
+									<div class="col-sm-10">
+										<div class="col-sm-10">
+											<input type="text" ng-model="messages.color" class="form-control" minicolors="">
+										</div>
+									</div>
+								</div>
+							</form>
+
+						</div>
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <filter id="greyscale">
+    <feColorMatrix type="matrix" 
+    	values="0.3333 0.3333 0.3333 0 0
+                0.3333 0.3333 0.3333 0 0
+                0.3333 0.3333 0.3333 0 0
+                0      0      0      1 0"/>
+  </filter>
+</svg>
+
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <filter id="old-timey">
+    <feColorMatrix 
+    values="0.14 0.45 0.05 0 0
+			0.12 0.39 0.04 0 0
+			0.08 0.28 0.03 0 0
+			0 0 0 1 0" />
+  </filter>
+</svg>
+
+<script src="libs/jquery/dist/jquery.min.js"></script>
+<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="libs/jquery-minicolors/jquery.minicolors.js"></script>
+<script src="libs/angular-minicolors/angular-minicolors.js"></script>
+
+<!-- App extras -->
+
+<script src="libs/vec2d/dist/vec2d.min.js"></script>
+<script src="app/extras/range.js"></script>
+<script src="app/extras/zoom.js"></script>
+
+<script src="app/app.module.js"></script>
+<script src="app/core/core.module.js"></script>
+
+<!-- Data Services -->
+<script src="app/service/service.module.js"></script>
+<script src="app/service/upload.service.js"></script>
+<script src="app/service/messages.service.js"></script>
+
+<!-- App uploader -->
+<script src="app/upload/upload.module.js"></script>
+<script src="app/upload/upload.controller.js"></script>
+<script src="app/upload/upload.directive.js"></script>
+
+<!-- Label -->
+<script src="app/label/label.module.js"></script>
+<script src="app/label/label.controller.js"></script>
+
+<!-- Filters -->
+<script src="app/filter/filter.module.js"></script>
+<script src="app/filter/filter.controller.js"></script>
+
+<!-- Text -->
+<script src="app/text/text.module.js"></script>
+<script src="app/text/text.controller.js"></script>
+
+</body>
+</html>     

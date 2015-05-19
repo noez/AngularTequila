@@ -1,0 +1,26 @@
+{
+  "name": "AngularTequila",
+  "version": "1.0.0",
+  "main": "Gulpfile.js",
+  "authors": [
+    "Noe Sanchez"
+  ],
+  "license": "ISC",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "src/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.15",
+    "jquery": "~2.1.4",
+    "angular-ui-router": "~0.2.14",
+    "bootstrap": "~3.3.4",
+    "vec2d": "~2.1.0",
+    "fontawesome": "~4.3.0",
+    "angular-minicolors": "~0.0.5"
+  }
+}
