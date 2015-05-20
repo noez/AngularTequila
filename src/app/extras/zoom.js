@@ -8,6 +8,7 @@ var Zoom = (function (window, $, undefined) {
       bound = {},
       imageRect = {},
       isTouchSupported = false,
+      oldScale = 1,
       $el = null,
       $zoom_area = null,
       $zoom_image = null,
@@ -33,16 +34,9 @@ var Zoom = (function (window, $, undefined) {
     var newWidth = clamp(range.value * imageRect.width, imageRect.width, imageRect.width * range.to),
         newHeight = newWidth * imageRect.height / imageRect.width;
 
-    var oldTop = clamp(vector_image_init.y, $zoom_mask.outerHeight() - newHeight, 0),
-        oldLeft = clamp(vector_image_init.x, $zoom_mask.outerWidth() - newWidth, 0);
+    var oldTop = vector_image_init.y, //clamp(vector_image_init.y, $zoom_mask.outerHeight() - newHeight, 0),
+        oldLeft = vector_image_init.x; //clamp(vector_image_init.x, $zoom_mask.outerWidth() - newWidth, 0);
     
-    console.log('---------------------');
-    console.log('oldLeft' + oldLeft);
-    console.log('oldTop' + oldTop);
-    console.log('---------------------');
-    console.log(range.value);
-    console.log(range.last);
-    console.log('---------------------');
     var s = range.value / range.last ;
 
     var newTop = s * oldTop + (1 - s) * $zoom_mask.outerHeight() / 2,
@@ -60,29 +54,15 @@ var Zoom = (function (window, $, undefined) {
       top: newTop,
       left: newLeft
     });
-    
 
-    deltaleft = newLeft - oldLeft;
-    deltatop = newTop - oldTop;
-    console.log('DeltaLeft: ' + deltaleft);
-    console.log('DeltaTop: ' + deltatop);
-    console.log('---------------------');
     
 
   };
 
   Zoom.prototype.lastRange = function (range) {
     var pos = $zoom_image.position();
-
-    console.log('Posx' + pos.left);
-    console.log('Posy' + pos.top);
-    console.log('---------------------');
-    console.log(range.value);
-    console.log('---------------------');
-    
     
     vector_image_init.setAxes(pos.left, pos.top);
-    range.value=1;
   };
 
   Zoom.prototype.reset = function () {
