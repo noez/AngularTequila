@@ -6,6 +6,8 @@
 	<title>Tequila Hacienda Maravatio</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="libs/fontawesome/css/font-awesome.min.css">
 	<link rel="stylesheet" href="libs/jquery-minicolors/jquery.minicolors.css">
@@ -14,30 +16,81 @@
 <body>
 
 <div class="wrapper">
-	<div class="left-bar">
+	<!-- Left Nav-->
+	<div class="left-bar left-bar--collapsed" ng-controller="NavController as vm">
+		<!-- Overlay -->
+		<div class="left-bar__overlay">&nbsp;</div>
+		
+		<!-- Folded Menu -->
 		<div class="left-bar__thin">
-			<div class="thin">
-				<div class="thin__logo">
-					<div class="logo">
-						<img src="" alt="" class="logo__image">
+			<div class="logo">
+				<a href="" class="logo__image">Tequila Hacienda Maravatio</a>
+			</div>
+		</div>
+		
+		<!-- Spread out Menu -->
+		<div class="left-bar__wide">
+			<div class="spread-menu">
+				<div class="spread-menu__header">
+					<div class="logo-header">
+						<a href="#/" class="logo-header__image">Tequila Hacienda Maravatio</a>
 					</div>
 				</div>
-				<div class="thin__cart">
-					<div class="cart">
-						<a href="" class="cart__toggler">
-							<span class="toggler">
-								<span class="toggler__icon"></span>
-								<span class="toggler__caret toggler__caret--circle"></span>
-							</span>
+				<div class="spread-menu__body">
+					<nav class="nav-types">
+						<ul class="list-unstyled type-list">
+							
+							<li class="type-list__item" ng-repeat="type in vm.types">
+								<a class="type-item" href="#">
+									<div class="type-item__body">
+										<img ng-src="{{ type.bimage }}" alt="type.name" height="200">
+									</div>
+									<div class="type-item__footer">
+										<h2 class="type-item__name">{{type.name}}</h2>
+									</div>
+								</a>
+							</li>
+
+						</ul>
+					</nav>
+					<!-- Social icons -->
+					<div class="social-media">
+						<a href="" class="social-media__item">
+							<i class="fa fa-facebook"></i>
+						</a>
+						<a href="" class="social-media__item">
+							<i class="fa fa-twitter"></i>
 						</a>
 					</div>
+					<!-- Footer -->
+					<footer class="footer">
+						<ul class="list-unstyled footer-links">
+							<li class="footer-links__item">
+								<a href="">Contacto</a>
+							</li>
+							<li class="footer-links__item">
+								<a href="">Términos y Condiciones</a>
+							</li>
+							<li class="footer-links__item">
+								THM {{ vm.date }} <i class="fa fa-copyright"></i> | Desarrollado por <a href="">Mucha-Web</a> 
+							</li>
+						</ul>
+					</footer>
 				</div>
 			</div>
 		</div>
-		<div class="left-bar__wide left-bar__wide--menu"></div>
-		<div class="left-bar__wide left-bar__wide--cart"></div>
-	</div> <!-- / left-bar -->
-	<div class="layout">
+
+		<!-- Button to fold Menu -->
+		<div class="left-bar__close">
+			<div class="logo close-button">
+				<a href="#" class="logo__image">Tequila Hacienda Maravatio</a>
+			</div>
+		</div>
+
+	</div> 
+
+	<!-- Main Layout -->
+	<div class="layout hidden">
 		<div class="layout__top"></div>
 		<div class="layout__row">
 			<div class="layout__row__col">
@@ -207,22 +260,30 @@
 
 <script src="libs/jquery/dist/jquery.min.js"></script>
 <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="libs/gsap/src/minified/TweenMax.min.js"></script>
+<script src="libs/gsap/src/minified/TimelineMax.min.js"></script>
+<script src="libs/vec2d/dist/vec2d.min.js"></script>
 <script src="libs/angular/angular.min.js"></script>
 <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
 <script src="libs/jquery-minicolors/jquery.minicolors.js"></script>
 <script src="libs/angular-minicolors/angular-minicolors.js"></script>
 
-<!-- App extras -->
-
-<script src="libs/vec2d/dist/vec2d.min.js"></script>
+<!-- Extras -->
+<script src="app/extras/navigation.js"></script>
 <script src="app/extras/range.js"></script>
 <script src="app/extras/zoom.js"></script>
 
+<!-- App -->
 <script src="app/app.module.js"></script>
 <script src="app/core/core.module.js"></script>
 
+<!-- Layout -->
+<script src="app/layout/layout.module.js"></script>
+<script src="app/layout/nav.controller.js"></script>
+
 <!-- Data Services -->
 <script src="app/service/service.module.js"></script>
+<script src="app/service/types.service.js"></script>
 <script src="app/service/upload.service.js"></script>
 <script src="app/service/messages.service.js"></script>
 

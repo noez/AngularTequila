@@ -5,6 +5,7 @@
       .module('app', [
         'app.core',
         'app.service',
+        'app.layout',
         'app.upload',
         'app.label',
         'app.filter',

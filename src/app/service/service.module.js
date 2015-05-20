@@ -3,6 +3,6 @@
 
     angular
         .module('app.service', [])
-        .constant('baseUrl','https://maravatio.haushaus.mx/api/');
+        .constant('baseUrl','http://maravatio.haushaus.mx/api/');
 
 })();
