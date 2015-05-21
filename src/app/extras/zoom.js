@@ -1,23 +1,21 @@
 var Zoom = (function (window, $, undefined) {
   var
-      defaults = {
-        el: '.zoom'
-      },
-      options = {},
-      events = {},
-      bound = {},
-      imageRect = {},
-      isTouchSupported = false,
-      oldScale = 1,
-      $el = null,
-      $zoom_area = null,
-      $zoom_image = null,
-      $zoom_mask = null,
+      defaults               = {el: '.zoom'},
+      options                = {},
+      events                 = {},
+      bound                  = {},
+      imageRect              = {},
+      isTouchSupported       = false,
+      oldScale               = 1,
+      $el                    = null,
+      $zoom_area             = null,
+      $zoom_image            = null,
+      $zoom_mask             = null,
 
-      vector_capture_init = Vec2D.ObjectVector(0, 0),
+      vector_capture_init    = Vec2D.ObjectVector(0, 0),
       vector_capture_current = Vec2D.ObjectVector(0, 0),
-      vector_image_init = Vec2D.ObjectVector(0, 0),
-      vector_image_dest = Vec2D.ObjectVector(0, 0);
+      vector_image_init      = Vec2D.ObjectVector(0, 0),
+      vector_image_dest      = Vec2D.ObjectVector(0, 0);
 
 
   function Zoom (opts) {
@@ -34,8 +32,8 @@ var Zoom = (function (window, $, undefined) {
     var newWidth = clamp(range.value * imageRect.width, imageRect.width, imageRect.width * range.to),
         newHeight = newWidth * imageRect.height / imageRect.width;
 
-    var oldTop = vector_image_init.y, //clamp(vector_image_init.y, $zoom_mask.outerHeight() - newHeight, 0),
-        oldLeft = vector_image_init.x; //clamp(vector_image_init.x, $zoom_mask.outerWidth() - newWidth, 0);
+    var oldTop = vector_image_init.y, 
+        oldLeft = vector_image_init.x;
     
     var s = range.value / range.last ;
 
