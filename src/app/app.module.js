@@ -6,6 +6,7 @@
         'app.core',
         'app.service',
         'app.layout',
+        'app.home',
         'app.timeline',
         'app.type',
         'app.version',
@@ -27,9 +28,7 @@
         .state('home', {
           url: '/home',
           templateUrl: 'app/home/home.html',
-          controller : function () {
-            alert('home');
-          }
+          controller : 'HomeController as vm'
         });
     $urlRouterProvider.otherwise('/timeline/type');
   }

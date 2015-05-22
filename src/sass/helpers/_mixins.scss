@@ -27,7 +27,10 @@
   padding: 0.5em 3em;
   margin: 1em 0;
   cursor: pointer;
+  transition : all 2ms ease-in-out;
   &:hover {
+    background-color: darken($brc, 5%);
+    color: white;
     text-decoration: none;
   }
 }
