@@ -370,8 +370,13 @@ html {
   border-bottom: 1px solid #EBEBEB;
   background: #FFFFFF;
 }
-.nav-types__title {
+.nav-types__heading {
   display: inline-block;
+  font-size: 14px;
+  line-height: 24px;
+  color: #A6833C;
+  margin: 0 0 1em 0;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 

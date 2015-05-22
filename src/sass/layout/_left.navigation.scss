@@ -149,10 +149,14 @@
 	border-bottom: 1px solid color('white','shade');
 	background: color('white','base');
 
-	@include element('title')
+	@include element('heading')
 	{
 		display: inline-block;
-
+		font-size: 14px;
+		line-height: 24px;
+		color: color('gold');
+		margin: 0 0 1em 0;
+		letter-spacing: 0.1em;
 		text-transform: uppercase;
 	}
 }
