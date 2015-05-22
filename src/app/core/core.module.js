@@ -1,9 +1,9 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app.core', [
-            'ui.router',
-            'minicolors'
-        ]);
+	angular
+		.module('app.core', [
+			'ui.router',
+			'minicolors'
+		]);
 })();

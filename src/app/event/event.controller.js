@@ -1,23 +1,23 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app.event')
-        .controller('EventController', EventController);
+	angular
+		.module('app.event')
+		.controller('EventController', EventController);
 
-    EventController.$inject = [];
+	EventController.$inject = [];
 
-    /* @ngInject */
-    function EventController() {
-        var vm = this;
-        vm.title = 'EventController';
+	/* @ngInject */
+	function EventController() {
+		var vm = this;
+		vm.title = 'EventController';
 
-        activate();
+		activate();
 
-        ////////////////
+		////////////////
 
-        function activate() {
-        	console.log(vm.title);
-        }
-    }
+		function activate() {
+			console.log(vm.title);
+		}
+	}
 })();

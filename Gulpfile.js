@@ -2,6 +2,7 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+var prettify = require('gulp-jsbeautifier');
 
 var AUTOPREFIXER_BROWSERS = [
   'ie >= 8',
@@ -24,13 +25,19 @@ gulp.task('styles', function() {
 
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts',function() {
 
   return gulp.src('src/app/**/*.js')
      .pipe($.jshint()) 
      .pipe($.jshint.reporter(require('jshint-stylish'))) 
      .pipe(gulp.dest('src/app'));
 
+});
+
+gulp.task('format-js', function(){
+  gulp.src('src/app/**/*.js')
+    .pipe(prettify({config: '.jsbeautifyrc', mode: 'VERIFY_AND_WRITE'}))
+    .pipe(gulp.dest('./src/app'))
 });
 
 gulp.task('watch', function() {

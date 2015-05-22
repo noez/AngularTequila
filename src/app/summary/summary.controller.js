@@ -1,23 +1,23 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app.summary')
-        .controller('SummaryController', SummaryController);
+	angular
+		.module('app.summary')
+		.controller('SummaryController', SummaryController);
 
-    SummaryController.$inject = [];
+	SummaryController.$inject = [];
 
-    /* @ngInject */
-    function SummaryController() {
-        var vm = this;
-        vm.title = 'DesignController';
+	/* @ngInject */
+	function SummaryController() {
+		var vm = this;
+		vm.title = 'DesignController';
 
-        activate();
+		activate();
 
-        ////////////////
+		////////////////
 
-        function activate() {
-        	console.log(vm.title);
-        }
-    }
+		function activate() {
+			console.log(vm.title);
+		}
+	}
 })();

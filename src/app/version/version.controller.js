@@ -1,23 +1,23 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app.version')
-        .controller('VersionController', VersionController);
+	angular
+		.module('app.version')
+		.controller('VersionController', VersionController);
 
-    VersionController.$inject = [];
+	VersionController.$inject = [];
 
-    /* @ngInject */
-    function VersionController() {
-        var vm = this;
-        vm.title = 'VersionController';
+	/* @ngInject */
+	function VersionController() {
+		var vm = this;
+		vm.title = 'VersionController';
 
-        activate();
+		activate();
 
-        ////////////////
+		////////////////
 
-        function activate() {
-        	console.log(vm.title);
-        }
-    }
+		function activate() {
+			console.log(vm.title);
+		}
+	}
 })();

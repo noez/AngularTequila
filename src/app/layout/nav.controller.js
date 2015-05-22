@@ -1,41 +1,41 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app.layout')
-        .controller('NavController', NavController);
+	angular
+		.module('app.layout')
+		.controller('NavController', NavController);
 
-    NavController.$inject = ['types'];
+	NavController.$inject = ['types'];
 
-    /* @ngInject */
-    function NavController(types) {
-        var vm = this;
-        vm.title = 'NavController';
+	/* @ngInject */
+	function NavController(types) {
+		var vm = this;
+		vm.title = 'NavController';
 
-        vm.types = [];
-        vm.date = new Date().getFullYear();
-        
-        
-        activate();
+		vm.types = [];
+		vm.date = new Date().getFullYear();
 
-        ////////////////
 
-        function activate() {
-        	console.log(vm.title);
-        	var navigation = new Navigation();
-        	return getTypes();
-        }
+		activate();
 
-        function getTypes () {
-        	types
-        		.getAll()
-        		.then(function then (data) {
-        			vm.types = data;
-        		})
-        		.catch(function error (err) {
-        			console.log(err);
-        		});
-        }
+		////////////////
 
-    }
+		function activate() {
+			console.log(vm.title);
+			var navigation = new Navigation();
+			return getTypes();
+		}
+
+		function getTypes() {
+			types
+				.getAll()
+				.then(function then(data) {
+					vm.types = data;
+				})
+				.catch(function error(err) {
+					console.log(err);
+				});
+		}
+
+	}
 })();

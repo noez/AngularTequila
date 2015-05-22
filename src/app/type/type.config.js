@@ -5,14 +5,14 @@
 		.module('app.type')
 		.config(config);
 
-  config.$inject = ['$stateProvider', '$urlRouterProvider'];
+	config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-  function config ($stateProvider, $urlRouterProvider) {
-  	$stateProvider
-	  	.state('timeline.type', {
-	  		url: '/type',
-	  		templateUrl: 'app/type/type.html',
-	  		controller : 'TypeController as vm'
-  	});
-  }
+	function config($stateProvider, $urlRouterProvider) {
+		$stateProvider
+			.state('timeline.type', {
+				url: '/type',
+				templateUrl: 'app/type/type.html',
+				controller: 'TypeController as vm'
+			});
+	}
 })();

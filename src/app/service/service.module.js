@@ -1,8 +1,8 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app.service', [])
-        .constant('baseUrl','http://maravatio.haushaus.mx/api/');
+	angular
+		.module('app.service', [])
+		.constant('baseUrl', 'http://maravatio.haushaus.mx/api/');
 
 })();

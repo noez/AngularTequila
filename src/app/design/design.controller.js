@@ -1,23 +1,23 @@
 (function() {
-    'use strict';
+	'use strict';
 
-    angular
-        .module('app.design')
-        .controller('DesignController', DesignController);
+	angular
+		.module('app.design')
+		.controller('DesignController', DesignController);
 
-    DesignController.$inject = [];
+	DesignController.$inject = [];
 
-    /* @ngInject */
-    function DesignController() {
-        var vm = this;
-        vm.title = 'DesignController';
+	/* @ngInject */
+	function DesignController() {
+		var vm = this;
+		vm.title = 'DesignController';
 
-        activate();
+		activate();
 
-        ////////////////
+		////////////////
 
-        function activate() {
-        	console.log(vm.title);
-        }
-    }
+		function activate() {
+			console.log(vm.title);
+		}
+	}
 })();
