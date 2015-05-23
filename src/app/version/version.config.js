@@ -8,10 +8,15 @@
 
 	function config($stateProvider, $urlRouterProvider) {
 		$stateProvider
+		/*.state('timeline.version', {
+			url: '/version',
+			templateUrl: 'app/version/version.html',
+			controller: 'VersionController as vm'
+		})*/
 			.state('timeline.version', {
-				url: '/version',
-				templateUrl: 'app/version/version.html',
-				controller: 'VersionController as vm'
-			});
+			url: '/version/:typeid',
+			templateUrl: 'app/version/version.html',
+			controller: 'VersionController as vm'
+		});
 	}
 })();

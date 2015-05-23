@@ -23,7 +23,6 @@
 	config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 	function config($stateProvider, $urlRouterProvider) {
-
 		$stateProvider
 			.state('home', {
 				url: '/home',

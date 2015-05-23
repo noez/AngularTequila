@@ -636,3 +636,37 @@ html {
   text-transform: uppercase;
   color: #666666;
 }
+
+.type {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 190px;
+  height: auto;
+  margin: 2em auto;
+  cursor: pointer;
+  text-align: center;
+}
+.type__body {
+  display: inline-block;
+}
+.type__footer {
+  display: inline-block;
+}
+.type__name {
+  text-transform: uppercase;
+  color: #666666;
+}
+.type__name:hover {
+  text-decoration: none;
+}
+.type__name:hover > h2 {
+  color: #A6833C;
+}
+.type__name > h2 {
+  font-size: 14px;
+}
+
+.version__table {
+  margin: 1em 0;
+}

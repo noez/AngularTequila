@@ -42,7 +42,7 @@
 						<h3 class="nav-types__heading">Haz que ese momento perdure por siempre selecciona el tequila de tu preferencia y personaliza tu etiqueta.</h3>
 						<ul class="list-unstyled type-list">
 							<li class="type-list__item" ng-repeat="type in vm.types">
-								<a class="type-item" href="#">
+								<a class="type-item" ui-sref="timeline.version({ typeid: type.id })">
 									<div class="type-item__body">
 										<img ng-src="{{ type.bimage }}" alt="type.name" height="200">
 									</div>
@@ -155,6 +155,7 @@
 <!-- Data Services -->
 <script src="app/service/service.module.js"></script>
 <script src="app/service/types.service.js"></script>
+<script src="app/service/versions.service.js"></script>
 <script src="app/service/upload.service.js"></script>
 <script src="app/service/messages.service.js"></script>
 

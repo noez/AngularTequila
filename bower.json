@@ -22,6 +22,7 @@
     "vec2d": "~2.1.0",
     "fontawesome": "~4.3.0",
     "angular-minicolors": "~0.0.5",
-    "gsap": "~1.16.1"
+    "gsap": "~1.16.1",
+    "html2canvas": "~0.4.1"
   }
 }
