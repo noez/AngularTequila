@@ -5,19 +5,18 @@
 		.module('app.design')
 		.controller('DesignController', DesignController);
 
-	DesignController.$inject = [];
+	DesignController.$inject = ['$scope'];
 
 	/* @ngInject */
-	function DesignController() {
-		var vm = this;
-		vm.title = 'DesignController';
+	function DesignController($scope) {
+		$scope.title = 'DesignController';
 
 		activate();
 
 		////////////////
 
 		function activate() {
-			console.log(vm.title);
+			console.log($scope.title);
 		}
 	}
 })();

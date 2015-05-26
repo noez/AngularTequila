@@ -1,1 +1,28 @@
-<h1>Design view</h1>
+<!-- Layout Body -->
+<div class="layout__body">
+	<div class="layout__col layout__col--left">
+		
+	</div>
+	<div class="layout__col">
+		<div class="widgets">
+			<!-- Widget Uploader -->
+			<div class="widgets__item">
+				<form ng-controller="UploadController">
+					<div class="form-group">
+						<label for="file-input-image" class="widget__label">
+						<i class="fa fa-upload"></i>
+							Cargar imagen 
+							
+						</label>
+						<input type="file" id="file-input-image"
+								name="file-input-image" 
+								file-input="files" multiple
+						class="form-control">
+					</div>
+					<button class="btn btn-primary" 
+						ng-click="upload()">Subir archivo </button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

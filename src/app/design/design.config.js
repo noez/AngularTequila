@@ -11,7 +11,7 @@
 			.state('timeline.design', {
 				url: '/design',
 				templateUrl: 'app/design/design.html',
-				controller: 'DesignController as vm'
+				controller: 'DesignController'
 			});
 	}
 })();

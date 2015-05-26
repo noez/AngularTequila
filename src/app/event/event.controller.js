@@ -5,24 +5,35 @@
 	.module('app.event')
 	.controller('EventController', EventController);
 
-	EventController.$inject = ['$scope','events','templates', '$timeout'];
+	EventController.$inject = ['$scope', '$state','$stateParams','$sessionStorage','events','templates','messages'];
 
 	/* @ngInject */
-	function EventController($scope, events, templates,$timeout) {
-
+	function EventController($scope, $state, $stateParams, $sessionStorage, events, templates, messages) {
+		
+		$scope.messages = messages;
 		$scope.events = [];
+		$scope.storage = $sessionStorage;
+
 		$scope.getTemplates = getTemplates;
 
 		$scope.templates = [];
+		$scope.template = {}
+
 		$scope.carousel;
+		$scope.save = save;
 		
 		activate();
 
 		////////////////
 
 		function activate() {
-			console.log($scope.title);
-			return getEvents();
+			// there is a type of tequila parameter, but no order
+			if ( !_.isUndefined($scope.messages.typeid) && !orderExist() ) {
+				console.log($scope.messages.typeid);
+					$state.go('timeline.version',{ typeid : $scope.messages.typeid});
+			}else {
+				return getEvents();
+			}
 		}
 
 		function getEvents () {
@@ -47,6 +58,16 @@
 			.catch(function (err) {
 				console.log(err);
 			});
+		}
+
+		function save (template) {
+			$scope.storage.order.item.event = $scope.event;
+			$scope.storage.order.item.templates[$scope.storage.order.cycle.index - 1] = template;
+			console.log($scope.storage.order);
+			
+		}
+		function orderExist () {
+			return _.has($scope.storage, 'order');
 		}
 	}
 })();

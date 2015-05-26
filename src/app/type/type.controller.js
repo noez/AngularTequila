@@ -5,12 +5,17 @@
 		.module('app.type')
 		.controller('TypeController', TypeController);
 
-	TypeController.$inject = ['types'];
+	TypeController.$inject = ['types' ,'$sessionStorage','messages'];
 
 	/* @ngInject */
-	function TypeController(types) {
+	function TypeController(types, $sessionStorage, messages) {
 		var vm = this;
 		vm.title = 'TypeController';
+		vm.storage = $sessionStorage;
+		vm.messages = messages;
+		
+		vm.storage.$reset();
+		vm.messages.setTypeId(null);
 		vm.types = [];
 		activate();
 

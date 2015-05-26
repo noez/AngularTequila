@@ -9,12 +9,14 @@
 	/* @ngInject */
 	function messages() {
 		var service = {
-			filter: {},
-			image: {},
-			font: {},
-			addImage: addImage,
-			addFilter: addFilter,
-			addFont: addFont
+			typeid : null,
+			filter    : {},
+			image     : {},
+			font      : {},
+			setTypeId : setTypeId,
+			addImage  : addImage,
+			addFilter : addFilter,
+			addFont   : addFont
 		};
 		return service;
 
@@ -30,6 +32,10 @@
 
 		function addFont(font) {
 			service.font = font;
+		}
+
+		function setTypeId (id) {
+			service.typeid = id;
 		}
 	}
 })();
