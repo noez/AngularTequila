@@ -1,185 +1,191 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="app">
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="x-ua-compatible" content="ie-edge">
-	<title>Tequila Hacienda Maravatio</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="libs/fontawesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="libs/backslider/css/backslider.css">
-	<link rel="stylesheet" href="libs/jquery-minicolors/jquery.minicolors.css">
-	<link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie-edge">
+  <title>Tequila Hacienda Maravatio</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600' rel='stylesheet' type='text/css'> -->
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="libs/fontawesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="app/extras/backslider/css/backslider.css">
+  <link rel="stylesheet" href="libs/slick-carousel/slick/slick.css">
+  <link rel="stylesheet" href="libs/jquery-minicolors/jquery.minicolors.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
+  <div class="wrapper">
+    <!-- Left Nav-->
+    <div class="left-bar left-bar--collapsed" ng-controller="NavController as vm">
+      <!-- Overlay -->
+      <div class="left-bar__overlay">&nbsp;</div>
 
-<div class="wrapper">
-	<!-- Left Nav-->
-	<div class="left-bar left-bar--collapsed" ng-controller="NavController as vm">
-		<!-- Overlay -->
-		<div class="left-bar__overlay">&nbsp;</div>
-		
-		<!-- Folded Menu -->
-		<div class="left-bar__thin">
-			<div class="logo">
-				<a href="" class="logo__image">Tequila Hacienda Maravatio</a>
-			</div>
-		</div>
-		
-		<!-- Spread out Menu -->
-		<div class="left-bar__wide">
-			<div class="spread-menu">
-				<div class="spread-menu__header">
-					<div class="logo-header">
-						<a ui-sref="home" class="logo-header__image">Tequila Hacienda Maravatio</a>
-					</div>
-				</div>
-				<div class="spread-menu__body">
-					<nav class="nav-types">
-						<h3 class="nav-types__heading">Haz que ese momento perdure por siempre selecciona el tequila de tu preferencia y personaliza tu etiqueta.</h3>
-						<ul class="list-unstyled type-list">
-							<li class="type-list__item" ng-repeat="type in vm.types">
-								<a class="type-item" ui-sref="timeline.version({ typeid: type.id })">
-									<div class="type-item__body">
-										<img ng-src="{{ type.bimage }}" alt="type.name" height="200">
-									</div>
-									<div class="type-item__footer">
-										<h2 class="type-item__name">{{type.name}}</h2>
-									</div>
-								</a>
-							</li>
+      <!-- Folded Menu -->
+      <div class="left-bar__thin">
+        <div class="logo">
+          <a href="" class="logo__image">Tequila Hacienda Maravatio</a>
+        </div>
+      </div>
 
-						</ul>
-					</nav>
-					<!-- Social icons -->
-					<div class="social-media">
-						<a href="" class="social-media__item">
-							<i class="fa fa-facebook"></i>
-						</a>
-						<a href="" class="social-media__item">
-							<i class="fa fa-twitter"></i>
-						</a>
-					</div>
-					<!-- Footer -->
-					<footer class="footer">
-						<ul class="list-unstyled footer-links">
-							<li class="footer-links__item">
-								<a href="">Contacto</a>
-							</li>
-							<li class="footer-links__item">
-								<a href="">Términos y Condiciones</a>
-							</li>
-							<li class="footer-links__item">
-								THM {{ vm.date }} <i class="fa fa-copyright"></i> 
-								| Desarrollado por <a href="">Mucha-Web</a> 
-							</li>
-						</ul>
-					</footer>
-				</div>
-			</div>
-		</div>
+      <!-- Spread out Menu -->
+      <div class="left-bar__wide">
+        <div class="spread-menu">
+          <div class="spread-menu__header">
+            <div class="logo-header">
+              <a ui-sref="home" class="logo-header__image">Tequila Hacienda Maravatio</a>
+            </div>
+          </div>
+          <div class="spread-menu__body">
+            <nav class="nav-types">
+              <h3 class="nav-types__heading">Haz que ese momento perdure por siempre selecciona el tequila de tu preferencia y personaliza tu etiqueta.</h3>
+              <ul class="list-unstyled type-list">
+                <li class="type-list__item" ng-repeat="type in vm.types">
+                  <a class="type-item" ui-sref="timeline.version({ typeid: type.id })">
+                    <div class="type-item__body">
+                      <img ng-src="{{ type.bimage }}" alt="type.name" height="200">
+                    </div>
+                    <div class="type-item__footer">
+                      <h2 class="type-item__name">{{type.name}}</h2>
+                    </div>
+                  </a>
+                </li>
 
-		<!-- Button to fold Menu -->
-		<div class="left-bar__close">
-			<div class="logo close-button">
-				<a href="#" class="logo__image">Tequila Hacienda Maravatio</a>
-			</div>
-		</div>
-	</div> 
+              </ul>
+            </nav>
+            <!-- Social icons -->
+            <div class="social-media">
+              <a href="" class="social-media__item">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a href="" class="social-media__item">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </div>
+            <!-- Footer -->
+            <footer class="footer">
+              <ul class="list-unstyled footer-links">
+                <li class="footer-links__item">
+                  <a href="">Contacto</a>
+                </li>
+                <li class="footer-links__item">
+                  <a href="">Términos y Condiciones</a>
+                </li>
+                <li class="footer-links__item">
+                  THM {{ vm.date }} <i class="fa fa-copyright"></i> | Desarrollado por <a href="">Mucha-Web</a>
+                </li>
+              </ul>
+            </footer>
+          </div>
+        </div>
+      </div>
 
-	<!-- Main Layout -->
-	<div class="layout" ui-view>
-	</div> <!-- / Main Layout -->
+      <!-- Button to fold Menu -->
+      <div class="left-bar__close">
+        <div class="logo close-button">
+          <a href="#" class="logo__image">Tequila Hacienda Maravatio</a>
+        </div>
+      </div>
+    </div>
+    <!-- Main Layout -->
+    <div class="layout" ui-view>
+    </div>
+    <!-- / Main Layout -->
+  </div>
+  <!-- / Wrapper -->
 
-</div><!-- / Wrapper -->
+  <script src="libs/jquery/dist/jquery.min.js"></script>
+  <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="libs/gsap/src/minified/TweenMax.min.js"></script>
+  <script src="libs/gsap/src/minified/TimelineMax.min.js"></script>
+  <script src="libs/vec2d/dist/vec2d.min.js"></script>
+  <script src="libs/angular/angular.min.js"></script>
+  <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="libs/jquery-minicolors/jquery.minicolors.js"></script>
+  <script src="libs/angular-minicolors/angular-minicolors.js"></script>
+  <script src="libs/jcarousel/dist/jquery.jcarousel.js"></script>
 
 
 
-<script src="libs/jquery/dist/jquery.min.js"></script>
-<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="libs/gsap/src/minified/TweenMax.min.js"></script>
-<script src="libs/gsap/src/minified/TimelineMax.min.js"></script>
-<script src="libs/vec2d/dist/vec2d.min.js"></script>
-<script src="libs/backslider/js/jquery.backslider.min.js"></script>
-<script src="libs/angular/angular.min.js"></script>
-<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-<script src="libs/jquery-minicolors/jquery.minicolors.js"></script>
-<script src="libs/angular-minicolors/angular-minicolors.js"></script>
+  <!-- Extras -->
+  <script src="app/extras/navigation.js"></script>
+  <script src="app/extras/range.js"></script>
+  <script src="app/extras/zoom.js"></script>
+  <script src="app/extras/backslider/js/jquery.backslider.min.js"></script>
 
-<!-- Extras -->
-<script src="app/extras/navigation.js"></script>
-<script src="app/extras/range.js"></script>
-<script src="app/extras/zoom.js"></script>
+  <!-- App -->
+  <script src="app/app.module.js"></script>
+  <script src="app/core/core.module.js"></script>
 
-<!-- App -->
-<script src="app/app.module.js"></script>
-<script src="app/core/core.module.js"></script>
+  <!-- Layout -->
+  <script src="app/layout/layout.module.js"></script>
+  <script src="app/layout/nav.controller.js"></script>
 
-<!-- Layout -->
-<script src="app/layout/layout.module.js"></script>
-<script src="app/layout/nav.controller.js"></script>
+  <!-- Home -->
+  <script src="app/home/home.module.js"></script>
+  <script src="app/home/home.controller.js"></script>
+  <script src="app/home/slider.directive.js"></script>
 
-<!-- Home -->
-<script src="app/home/home.module.js"></script>
-<script src="app/home/home.controller.js"></script>
-<script src="app/home/slider.directive.js"></script>
+  <!-- Timeline -->
+  <script src="app/timeline/timeline.module.js"></script>
+  <script src="app/timeline/timeline.config.js"></script>
+  <script src="app/timeline/timeline.controller.js"></script>
 
-<!-- Timeline -->
-<script src="app/timeline/timeline.module.js"></script>
-<script src="app/timeline/timeline.config.js"></script>
-<script src="app/timeline/timeline.controller.js"></script>
+  <!-- Type -->
+  <script src="app/type/type.module.js"></script>
+  <script src="app/type/type.config.js"></script>
+  <script src="app/type/type.controller.js"></script>
 
-<!-- Type -->
-<script src="app/type/type.module.js"></script>
-<script src="app/type/type.config.js"></script>
-<script src="app/type/type.controller.js"></script>
+  <!-- Version -->
+  <script src="app/version/version.module.js"></script>
+  <script src="app/version/version.config.js"></script>
+  <script src="app/version/version.controller.js"></script>
 
-<!-- Version -->
-<script src="app/version/version.module.js"></script>
-<script src="app/version/version.config.js"></script>
-<script src="app/version/version.controller.js"></script>
+  <!-- Event -->
+  <script src="app/event/event.module.js"></script>
+  <script src="app/event/event.config.js"></script>
+  <script src="app/event/event.controller.js"></script>
+  <script src="app/event/carousel.directive.js"></script>
 
-<!-- Event -->
-<script src="app/event/event.module.js"></script>
-<script src="app/event/event.config.js"></script>
-<script src="app/event/event.controller.js"></script>
+  <!-- Design -->
+  <script src="app/design/design.module.js"></script>
+  <script src="app/design/design.config.js"></script>
+  <script src="app/design/design.controller.js"></script>
 
-<!-- Design -->
-<script src="app/design/design.module.js"></script>
-<script src="app/design/design.config.js"></script>
-<script src="app/design/design.controller.js"></script>
+  <!-- Data Services -->
+  <script src="app/service/service.module.js"></script>
+  <script src="app/service/types.service.js"></script>
+  <script src="app/service/versions.service.js"></script>
+  <script src="app/service/events.service.js"></script>
+  <script src="app/service/templates.service.js"></script>
+  <script src="app/service/upload.service.js"></script>
+  <script src="app/service/messages.service.js"></script>
 
-<!-- Data Services -->
-<script src="app/service/service.module.js"></script>
-<script src="app/service/types.service.js"></script>
-<script src="app/service/versions.service.js"></script>
-<script src="app/service/upload.service.js"></script>
-<script src="app/service/messages.service.js"></script>
+  <!-- App uploader -->
+  <script src="app/upload/upload.module.js"></script>
+  <script src="app/upload/upload.controller.js"></script>
+  <script src="app/upload/upload.directive.js"></script>
 
-<!-- App uploader -->
-<script src="app/upload/upload.module.js"></script>
-<script src="app/upload/upload.controller.js"></script>
-<script src="app/upload/upload.directive.js"></script>
+  <!-- Label -->
+  <script src="app/label/label.module.js"></script>
+  <script src="app/label/label.controller.js"></script>
 
-<!-- Label -->
-<script src="app/label/label.module.js"></script>
-<script src="app/label/label.controller.js"></script>
+  <!-- Filters -->
+  <script src="app/filter/filter.module.js"></script>
+  <script src="app/filter/filter.controller.js"></script>
 
-<!-- Filters -->
-<script src="app/filter/filter.module.js"></script>
-<script src="app/filter/filter.controller.js"></script>
+  <!-- Text -->
+  <script src="app/text/text.module.js"></script>
+  <script src="app/text/text.controller.js"></script>
 
-<!-- Text -->
-<script src="app/text/text.module.js"></script>
-<script src="app/text/text.controller.js"></script>
-
-<!-- Summary -->
-<script src="app/summary/summary.module.js"></script>
-<script src="app/summary/summary.config.js"></script>
-<script src="app/summary/summary.controller.js"></script>
+  <!-- Summary -->
+  <script src="app/summary/summary.module.js"></script>
+  <script src="app/summary/summary.config.js"></script>
+  <script src="app/summary/summary.controller.js"></script>
 
 </body>
-</html>     
+
+</html>

@@ -28,8 +28,8 @@ gulp.task('styles', function() {
 gulp.task('scripts',function() {
 
   return gulp.src('src/app/**/*.js')
-     .pipe($.jshint()) 
-     .pipe($.jshint.reporter(require('jshint-stylish'))) 
+     .pipe($.jshint())
+     .pipe($.jshint.reporter(require('jshint-stylish')))
      .pipe(gulp.dest('src/app'));
 
 });
@@ -38,6 +38,12 @@ gulp.task('format-js', function(){
   gulp.src('src/app/**/*.js')
     .pipe(prettify({config: '.jsbeautifyrc', mode: 'VERIFY_AND_WRITE'}))
     .pipe(gulp.dest('./src/app'))
+});
+
+gulp.task('format-html', function() {
+  gulp.src('src/index.html')
+    .pipe(prettify({indentSize: 2}))
+    .pipe(gulp.dest('src/'))
 });
 
 gulp.task('watch', function() {

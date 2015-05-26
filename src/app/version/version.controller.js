@@ -5,7 +5,7 @@
 		.module('app.version')
 		.controller('VersionController', VersionController);
 
-	VersionController.$inject = ['$state', '$stateParams','versions'];
+	VersionController.$inject = ['$state', '$stateParams', 'versions'];
 
 	/* @ngInject */
 	function VersionController($state, $stateParams, versions) {
@@ -24,21 +24,21 @@
 
 		function activate() {
 			console.log(vm.title);
-			if (typeid) { 
+			if (typeid) {
 				return getVersions();
 			};
 		}
 
-		function getVersions () {
+		function getVersions() {
 			versions
-			  .allVersions(typeid)
-			  .then(function (versions) {
-			    vm.versions = versions;
-			    vm.version = vm.versions[0];
-			  })
-			  .catch(function (err) {
-			    console.log(err);
-			  });
+				.allVersions(typeid)
+				.then(function(versions) {
+					vm.versions = versions;
+					vm.version = vm.versions[0];
+				})
+				.catch(function(err) {
+					console.log(err);
+				});
 		}
 	}
 })();

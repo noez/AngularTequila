@@ -11,7 +11,7 @@
 			.state('timeline.event', {
 				url: '/event',
 				templateUrl: 'app/event/event.html',
-				controller: 'EventController as vm'
+				controller: 'EventController'
 			});
 	}
 })();

@@ -1,1 +1,33 @@
-<h1>Event view</h1>
+<div class="layout__body">
+    <div class="layout__col layout__col--wide">
+        <div class="events">
+            <form novalidate>
+                <div class="form-group">
+                    <label for="event_type">Tipo de Evento</label>
+                    <select name="event_type" id="event_type"
+                            class="form-control"
+                            ng-options="event as event.name for event in events | orderBy:'name'"
+                            ng-model="event"
+                            ng-change="getTemplates(event.id)">
+
+                    </select>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="layout__col layout__col--wide">
+        <div j-carousel="carousel" source="templates" class="jcarousel-wrapper">
+            <div class="jcarousel">
+                <ul>
+                    <li ng-repeat="template in templates">
+                        <img ng-src="{{template.timage}}" alt=""/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <button class="btn btn-primary" ng-click="carousel.prev()">Prev</button>
+            <button class="btn btn-primary" ng-click="carousel.next()">Next</button>
+        </div>
+    </div>
+</div>
