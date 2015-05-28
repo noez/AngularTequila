@@ -54,11 +54,6 @@ gulp.task('watch', function() {
     'src/sass/**/*.scss'
   ], ['styles']);
 
-  // watch all js files
-  gulp.watch([
-    'src/app/*.js',
-    'src/app/**/*.js'
-  ], ['scripts']);
 
 });
 

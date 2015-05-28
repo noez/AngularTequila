@@ -2,14 +2,13 @@
 <div class="layout__body">
     <div class="layout__col layout__col--left">
         <div class="design-label">
-            <div style="width: 400px; height: 400px; background-color:#11ffae;">
-                <h1>La imagen debe cargar aqui..!</h1>
-                <img src="images/etiqueta.png" alt="" class="img-responsive"/>
-                <img tq-transporter="design" source="design.image" class="img-responsive"/>
-            </div>
-            <div class="image-preview">
-
-            </div>
+            <figure>
+                <h4>La imagen debe cargar aqui..!</h4>
+                <img tq-transporter="design" source="design.image" storage="storage"class="img-responsive"/>
+            </figure>
+            <pre>
+                {{ storage.order.item.baseImage | json}}
+            </pre>
         </div>
     </div>
     <div class="layout__col">
@@ -89,5 +88,6 @@
                 </div>
             </div>
         </div>
+        <button class="btn btn-success" ng-click="sendOrder()">Send order</button>
     </div>
 </div>

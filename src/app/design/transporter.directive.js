@@ -5,34 +5,32 @@
         return {
             restrict: 'A',
             scope: {
-                source: '='
+                source: '=',
+                storage : '='
             },
             link: function (scope, element, attrs) {
                 var isInitiaLized = false,
                     elImage = element,
                     container = $('.image-preview');
+
                 elImage.on('load', function () {
-                    $timeout(function(){
+
                         html2canvas(elImage.parent(), {
 
                             onrendered: function(canvas) {
                                 document.body.appendChild(canvas);
-                                console.log(canvas.toDataURL());
+                                scope.storage.order.item.baseImage = canvas.toDataURL();
                             }
                         });
-                    },2000);
+
                 });
 
                 scope.$watch("source", function (newValue) {
 
-                    console.log(elImage.parent());
                     if(!_.isUndefined(newValue.file)){
                         elImage.attr('src', newValue.file);
-
-                        /*;*/
-
                     }
-                   /* */
+
                 })
             }
 
