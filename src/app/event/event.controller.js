@@ -17,7 +17,7 @@
 		$scope.getTemplates = getTemplates;
 
 		$scope.templates = [];
-		$scope.template = {}
+		$scope.template = {};
 
 		$scope.carousel;
 		$scope.save = save;

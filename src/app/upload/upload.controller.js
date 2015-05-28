@@ -1,45 +1,47 @@
-(function() {
-	'use strict';
+(function () {
+    'use strict';
 
-	angular
-		.module('app.upload')
-		.controller('UploadController', UploadController);
+    angular
+        .module('app.upload')
+        .controller('UploadController', UploadController);
 
-	UploadController.$inject = ['$scope', '$rootScope', 'uploader', 'messages'];
+    UploadController.$inject = ['$scope', '$rootScope', 'upload', 'designNetwork'];
 
-	/* @ngInject */
-	function UploadController($scope, $rootScope, uploader, messages) {
+    /* @ngInject */
+    function UploadController($scope, $rootScope, upload, designNetwork) {
 
-		$scope.upload = upload;
-		$scope.image = {};
+        $scope.upload = upload;
+        $scope.image = {};
 
-		$scope.messages = messages;
-		activate();
+        $scope.design = designNetwork;
 
-		////////////////
+        // actions
+        $scope.uploadFile = uploadFile;
 
-		function activate() {
-			console.log('Running UploadController..');
-		}
+        activate();
 
-		function upload() {
-			var fd = new FormData();
+        ////////////////
 
-			angular.forEach($scope.files, function(file) {
-				fd.append('file', file);
-			});
+        function activate() {
+            console.log('UploadController');
+        }
 
-			uploader.file(fd)
-				.then(function(res) {
-					$scope.image = res;
-					$scope.messages.addImage($scope.image);
-					$rootScope.$broadcast('upload.complete');
-				})
-				.catch(function(err) {
-					console.log(err);
-				});
-		}
+        function uploadFile() {
+            var fd = new FormData();
 
+            angular.forEach($scope.files, function (file) {
+                fd.append('file', file);
+            });
 
-	}
+            upload.file(fd)
+                .then(function (res) {
+                    $scope.image = res;
+                    $scope.design.setImage($scope.image);
+                    //$rootScope.$broadcast('upload.complete');
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+    }
 })();

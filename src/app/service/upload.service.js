@@ -3,12 +3,12 @@
 
 	angular
 		.module('app.service')
-		.factory('uploader', uploader);
+		.factory('upload', upload);
 
-	uploader.$inject = ['$http', '$q', 'baseUrl'];
+	upload.$inject = ['$http', '$q', 'baseUrl'];
 
 	/* @ngInject */
-	function uploader($http, $q, baseUrl) {
+	function upload($http, $q, baseUrl) {
 
 		var service = {
 			file: file

@@ -1,89 +1,80 @@
-(function() {
-	'use strict';
+(function () {
+    'use strict';
 
-	angular
-		.module('app.version')
-		.controller('VersionController', VersionController);
+    angular
+        .module('app.version')
+        .controller('VersionController', VersionController);
 
-	VersionController.$inject = ['$state', '$stateParams',	'$sessionStorage', 'versions','messages'];
+    VersionController.$inject = ['$state', '$stateParams', '$sessionStorage', 'versions', 'messages'];
 
-	/* @ngInject */
-	function VersionController($state, $stateParams, $sessionStorage, versions, messages) {
-		var vm        = this;
-			vm.title    = 'VersionController';
-			vm.storage  = $sessionStorage;
-			vm.messages = messages;
-			vm.versions = [];
-			vm.version  = null;
-			vm.box      =  orderExist() ? vm.storage.order.item.box : 1;
-			vm.save     = save;
-			vm.item     = {};
-			vm.order    = {};
-			vm.cycle    = { index : 1, length : null };
+    /* @ngInject */
+    function VersionController($state, $stateParams, $sessionStorage, versions, messages) {
+        var vm = this;
+        vm.title = 'VersionController';
+        vm.storage = $sessionStorage;
+        vm.messages = messages;
+        vm.versions = [];
+        vm.version = null;
+        vm.box = orderExist() ? vm.storage.order.item.box : 1;
+        vm.save = save;
+        vm.item = {};
+        vm.order = {};
+        vm.cycle = {index: 1, length: null};
 
-			var typeid  = orderExist() ? vm.storage.order.item.version.type : $stateParams.typeid;
-		
-		vm.messages.setTypeId(typeid);
-		
-		activate();
+        var typeid = orderExist() ? vm.storage.order.item.version.type : $stateParams.typeid;
 
-		////////////////
+        vm.messages.setTypeId(typeid);
 
-		function activate() {
-			console.log(typeid);
-			if (!typeid) {
-				$state.go('timeline.type');
-			}else {
-				return getVersions();
-			}
-		}
+        activate();
 
-		function getVersions() {
-			versions
-				.allVersions(typeid)
-				.then(function(versions) {
-					
-					vm.versions = versions;
+        ////////////////
 
-					if (orderExist()) {
-						var indexVersion = _.findIndex(vm.versions, function (value, index) {
-							
-							if(value.id === vm.storage.order.item.version.id) {
-								console.log(value.id + ' -- ' + vm.storage.order.item.version.id);
-								console.log(index);
-								return index;
-							}
-						});
-						console.log(indexVersion);
-						vm.version = versions[indexVersion];
-						console.log(vm.storage.order.item.version);
-					}else {
-						vm.version = versions[0];
-					}
-					
-				})
-				.catch(function(err) {
-					console.log(err);
-				});
-		}
+        function activate() {
+            if (!typeid) {
+                $state.go('timeline.type');
+            } else {
+                return getVersions();
+            }
+        }
 
-		function orderExist () {
-			return _.has(vm.storage, 'order');
-		}
+        function getVersions() {
+            versions
+                .allVersions(typeid)
+                .then(function (versions) {
 
-		function save () {
+                    vm.versions = versions;
 
-			vm.item.version = vm.version;
-			vm.item.box = parseInt(vm.box, 10);
-			vm.item.templates = [];
-			vm.item.event = null;
+                    if (orderExist()) {
+                        var indexVersion = _.findIndex(vm.versions, function (version) {
+                            return version.id == vm.storage.order.item.version.id;
+                        });
+                        vm.version = versions[indexVersion];
+                    } else {
+                        vm.version = versions[0];
+                    }
+                })
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
 
-			vm.cycle.length = vm.version.maxlabels * vm.item.box;
+        function orderExist() {
+            return _.has(vm.storage, 'order');
+        }
 
-			vm.storage.order = {
-				cycle : vm.cycle,
-				item : vm.item
-			};	
-		}
-	}
+        function save() {
+
+            vm.item.version = vm.version;
+            vm.item.box = parseInt(vm.box, 10);
+            vm.item.templates = [];
+            vm.item.event = null;
+
+            vm.cycle.length = vm.version.maxlabels * vm.item.box;
+
+            vm.storage.order = {
+                cycle: vm.cycle,
+                item: vm.item
+            };
+        }
+    }
 })();

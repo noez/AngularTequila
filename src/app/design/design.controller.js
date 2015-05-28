@@ -1,22 +1,33 @@
-(function() {
-	'use strict';
+(function () {
+    'use strict';
 
-	angular
-		.module('app.design')
-		.controller('DesignController', DesignController);
+    angular
+        .module('app.design')
+        .controller('DesignController', DesignController);
 
-	DesignController.$inject = ['$scope'];
+    DesignController.$inject = ['$scope', '$state', '$stateParams', '$sessionStorage', 'designNetwork'];
 
-	/* @ngInject */
-	function DesignController($scope) {
-		$scope.title = 'DesignController';
+    /* @ngInject */
+    function DesignController($scope, $state, $stateParams, $sessionStorage, designNetwork) {
 
-		activate();
+        $scope.title = 'DesignController';
 
-		////////////////
+        $scope.storage = $sessionStorage;
 
-		function activate() {
-			console.log($scope.title);
-		}
-	}
+        $scope.design = designNetwork;
+
+        $scope.imageLoaded = designNetwork.image;
+
+        activate();
+
+        ////////////////
+
+        function activate() {
+
+        }
+
+        function orderExist() {
+            return _.has($scope.storage, 'order');
+        }
+    }
 })();
